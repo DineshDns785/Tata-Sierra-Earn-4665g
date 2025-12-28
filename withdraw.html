@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Withdraw – Tata Sierra</title>
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;}
+    body{
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:20px 14px;
+      background:radial-gradient(circle at top,#020617,#020617 40%,#000000);
+      font-family:system-ui, sans-serif;
+      color:#e5e7eb;
+    }
+    .card{
+      width:100%;
+      max-width:420px;
+      background:rgba(15,23,42,0.98);
+      border-radius:20px;
+      padding:20px 18px 22px;
+      box-shadow:
+        0 24px 60px rgba(0,0,0,0.9),
+        0 0 0 1px rgba(75,85,99,0.5);
+      position:relative;
+      overflow:hidden;
+    }
+    .card::before{
+      content:"";
+      position:absolute;
+      inset:-40%;
+      background:
+        radial-gradient(circle at 0% 0%,rgba(59,130,246,0.45),transparent 55%),
+        radial-gradient(circle at 100% 100%,rgba(245,158,11,0.55),transparent 55%);
+      opacity:0.55;
+      pointer-events:none;
+    }
+    .inner{position:relative;z-index:1;}
+
+    h1{
+      font-size:20px;
+      margin-bottom:4px;
+    }
+    .subtitle{
+      font-size:12px;
+      opacity:0.85;
+      margin-bottom:14px;
+    }
+
+    .field{
+      margin-top:10px;
+      text-align:left;
+    }
+    .label{
+      font-size:12px;
+      margin-bottom:4px;
+      opacity:0.88;
+    }
+    input{
+      width:100%;
+      padding:9px 11px;
+      border-radius:12px;
+      border:1px solid rgba(55,65,81,0.9);
+      background:rgba(15,23,42,0.96);
+      color:#e5e7eb;
+      font-size:13px;
+    }
+    input::placeholder{
+      color:#6b7280;
+    }
+
+    .hint{
+      margin-top:6px;
+      font-size:11px;
+      opacity:0.75;
+    }
+
+    .balance-row{
+      margin-top:10px;
+      font-size:12px;
+      opacity:0.9;
+      display:flex;
+      justify-content:space-between;
+    }
+    .balance-row span{
+      color:#facc15;
+      font-weight:500;
+    }
+
+    .btn-primary{
+      margin-top:16px;
+      width:100%;
+      padding:10px 0;
+      border-radius:999px;
+      border:none;
+      background:linear-gradient(135deg,#22c55e,#00ff88);
+      color:#020617;
+      font-size:14px;
+      font-weight:600;
+      box-shadow:0 0 24px rgba(16,185,129,0.9);
+    }
+    .btn-secondary{
+      margin-top:10px;
+      width:100%;
+      padding:8px 0;
+      border-radius:999px;
+      border:1px solid rgba(148,163,184,0.7);
+      background:rgba(15,23,42,0.96);
+      color:#e5e7eb;
+      font-size:12px;
+    }
+
+    .note{
+      margin-top:10px;
+      font-size:11px;
+      opacity:0.75;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <div class="inner">
+
+
+<script>
+  atOptions = {
+    'key' : 'b6e60c2319eb7e7338f440cbb61abf82',
+    'format' : 'iframe',
+    'height' : 250,
+    'width' : 300,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/b6e60c2319eb7e7338f440cbb61abf82/invoke.js"></script>
+
+
+
+      <h1>Withdraw Coins 🪙</h1>
+      <p class="subtitle">
+        Enter your UPI address and coins amount. Your withdrawal will be successfully processed within 24 hours.
+      </p>
+
+      <div class="balance-row">
+        <div>Available Coins:</div>
+        <div><span id="coinsText">0</span></div>
+      </div>
+
+      <div class="field">
+        <div class="label">UPI Address</div>
+        <input id="upiInput" type="text"
+               placeholder="example@upi">
+      </div>
+
+      <div class="field">
+        <div class="label">Enter Coins</div>
+        <input id="coinsInput" type="number" min="1"
+               placeholder="Minimum 1000 coins">
+        <div class="hint">💰 10 Coin = ₹1 | Instant UPI Withdraw | Min ₹100.</div>
+      </div>
+
+      <button class="btn-primary" onclick="sendWithdraw()">
+        Request Withdraw
+      </button>
+
+      <button class="btn-secondary" onclick="goHome()">
+        Back to Home
+      </button>
+
+      <p class="note">
+        Request WhatsApp chat me open hogi, jahan aap confirmation de sakte hain.  
+        Kripya galat UPI details na bheje.
+      </p>
+    </div>
+
+
+...
+<script>
+  atOptions = {
+    'key' : '01f25da68cbc3c53a8827ebe90ce9998',
+    'format' : 'iframe',
+    'height' : 50,
+    'width' : 320,
+    'params' : {}
+  };
+</script>
+<script src="https://www.highperformanceformat.com/01f25da68cbc3c53a8827ebe90ce9998/invoke.js"></script>
+
+
+  </div>
+
+  <script>
+    // coins display (same localStorage key jo game me use kiya hai)
+    let coins = parseInt(localStorage.getItem('coins') || '0', 10);
+    document.getElementById('coinsText').textContent = coins;
+
+    function sendWithdraw(){
+      const upi   = document.getElementById('upiInput').value.trim();
+      const reqCoinsStr = document.getElementById('coinsInput').value.trim();
+
+      if(!upi || !reqCoinsStr){
+        alert("Please enter UPI address and coins.");
+        return;
+      }
+
+      const reqCoins = parseInt(reqCoinsStr, 10);
+      if (isNaN(reqCoins) || reqCoins <= 0){
+        alert("Please enter a valid coin amount.");
+        return;
+      }
+
+      if (reqCoins > coins){
+        alert("You do not have enough coins.");
+        return;
+      }
+
+      // ***** YAHAN SE COINS TURANT MINUS HO RAHE HAIN *****
+      coins = coins - reqCoins;                         // local value update
+      localStorage.setItem('coins', coins.toString());  // storage me save
+      document.getElementById('coinsText').textContent = coins; // screen update
+      // ***** YAHAN TAK SIRF MINUS LOGIC ADD KIYA GAYA *****
+
+      // WhatsApp click‑to‑chat link
+      const msg =
+        `Withdraw Request%0AUPI: ${encodeURIComponent(upi)}%0ACoins: ${encodeURIComponent(reqCoinsStr)}%0ATotal Coins in App: ${encodeURIComponent(coins)}`;
+
+      const waUrl = `https://wa.me/qr/TTVA622K3RZFA1?text=${msg}`;
+
+      window.open(waUrl, "_blank");
+    }
+
+    function goHome(){
+      location.href = "home.html";
+    }
+  </script>
+</body>
+</html>
